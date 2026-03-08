@@ -49,5 +49,3 @@ The repository is organized by machine difficulty to make navigation easier:
 
 ---
 
-##  Disclaimer
-These writeups are for educational purposes only. Always obtain permission before testing any system.
