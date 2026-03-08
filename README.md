@@ -33,7 +33,9 @@ The repository is organized by machine difficulty to make navigation easier:
 | **Interpreter**| Feb 2026 | Mirth Connect RCE + Eval Injection (PrivEsc) | [Walkthrough](./Medium/README.md) |
 
 ### 🔴 Hard
-*Coming Soon...*
+| Machine | Date | Focus | Walkthrough |
+| :--- | :--- | :--- | :--- |
+| **Pirate** | Feb 2026 | gMSA Enumeration, Kerberoasting, AD Privilege Escalation  | [View Report](./Hard/README.md) |
 
 ---
 
