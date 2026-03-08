@@ -19,9 +19,9 @@ The repository is organized by machine difficulty to make navigation easier:
 ### 🟢 Easy
 | Machine | Date | Focus | Walkthrough |
 | :--- | :--- | :--- | :--- |
-| **Editor** | Jan 2026 | RCE (XWiki), PATH Hijacking | [View Report](./Easy/README.md) |
-| **Expressway**| Jan 2026| IKE Aggressive mode,Custom SUID Binary| [View Report](./Easy/README.md) |
-| **MonitorsFour** | Jan 2026  | RCE (CVE-2025-24367) , Exposed Docker Remote API(Unauthenticated)  | [View Report](./Easy/README.md) |
+| **Editor** | Jan 2026 | RCE (XWiki), PATH Hijacking | [Walkthorugh](./Easy/README.md) |
+| **Expressway**| Jan 2026| IKE Aggressive mode,Custom SUID Binary| [Walkthorugh](./Easy/README.md) |
+| **MonitorsFour** | Jan 2026  | RCE (CVE-2025-24367) , Exposed Docker Remote API(Unauthenticated)  | [Walkthorugh](./Easy/README.md) |
 | **Facts** | Feb 2026 | Information Disclosure + Misconfiguration | [Walkthrough](./Easy/README.md) |
 | **WingData** | Feb 2026 | Web Application Vulnerability (Auth/Injection) |  [Walkthrough](./Easy/README.md) |
 | **CCTV** | Mar 2026 | Internal Reconnaissance, API Abuse, Service Misconfiguration | [Walkthrough](./Easy/README.md) |
@@ -29,7 +29,7 @@ The repository is organized by machine difficulty to make navigation easier:
 ### 🟡 Medium
 | Machine | Date | Focus | Walkthrough |
 | :--- | :--- | :--- | :--- |
-| **Pterodactyl** | Feb 2026 | RCE(CVE-2025-43912), Privilige Escalation(CVE-2025-6019/6018) | [View Report](./Medium/README.md) |
+| **Pterodactyl** | Feb 2026 | RCE(CVE-2025-43912), Privilige Escalation(CVE-2025-6019/6018) | [Walkthorugh](./Medium/README.md) |
 | **AirTouch** | Feb 2026 | Credential Exposure + Network Pivoting  | [Walkthrough](./Medium/README.md) |
 | **Interpreter**| Feb 2026 | Mirth Connect RCE + Eval Injection (PrivEsc) | [Walkthrough](./Medium/README.md) |
 
