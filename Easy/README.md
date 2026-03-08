@@ -4,7 +4,7 @@ This directory serves as a collection of writeups for **Easy-difficulty** machin
 
 ---
 
-## 🛠️ Typical Methodology
+##  Typical Methodology
 
 For most machines in this category, I follow a standard workflow:
 
@@ -15,7 +15,7 @@ For most machines in this category, I follow a standard workflow:
 
 ---
 
-## 📑 Machine Index
+##  Machine Index
 
 | Machine Name | OS | Main Vulnerability | Difficulty (User/Root) | Link |
 | :--- | :--- | :--- | :--- | :--- |
@@ -27,7 +27,7 @@ For most machines in this category, I follow a standard workflow:
 
 ---
 
-## 📚 Common Tools Used
+##  Common Tools Used
 
 * **Scanning:** `nmap`, `rustscan`.
 * **Web:** `gobuster`, `feroxbuster`, `burpsuite`.
@@ -35,4 +35,4 @@ For most machines in this category, I follow a standard workflow:
 
 ---
 
-[⬅️ Back to Main Portfolio](../README.md)
+[ Back to Main Portfolio](../README.md)

@@ -1,10 +1,10 @@
-# 🎯 HackTheBox Writeups
+#  HackTheBox Writeups
 
 Welcome to my collection of HackTheBox machine walkthroughs. This repository serves as a technical journal of my penetration testing journey, documenting the methodologies, tools, and vulnerabilities encountered.
 
 ---
 
-## 📂 Repository Structure
+##  Repository Structure
 
 The repository is organized by machine difficulty to make navigation easier:
 
@@ -14,7 +14,7 @@ The repository is organized by machine difficulty to make navigation easier:
 
 ---
 
-## 📝 Completed Writeups
+##  Completed Writeups
 
 ### 🟢 Easy
 | Machine | Date | Focus | Walkthrough |
@@ -37,7 +37,7 @@ The repository is organized by machine difficulty to make navigation easier:
 
 ---
 
-## 🛠️ Tools Frequently Used
+##  Tools Frequently Used
 
 * **Recon:** Nmap, Gobuster, Rustscan
 * **Web:** Burp Suite, Ffuf, SQLmap
@@ -46,5 +46,5 @@ The repository is organized by machine difficulty to make navigation easier:
 
 ---
 
-## 🛡️ Disclaimer
+##  Disclaimer
 These writeups are for educational purposes only. Always obtain permission before testing any system.
