@@ -33,6 +33,7 @@ The repository is organized by machine difficulty to make navigation easier:
 | **AirTouch** | Feb 2026 | Credential Exposure + Network Pivoting  | [Walkthrough](./Medium/README.md) |
 | **Interpreter**| Feb 2026 | Mirth Connect RCE + Eval Injection (PrivEsc) | [Walkthrough](./Medium/README.md) |
 | **Principal** | Linux | JWT Authentication Bypass (CVE-2026-29000) + SSH CA Certificate Forgery | [Walkthrough](./Medium/README.md) |
+| **VariaType** | Linux | LFI → fontTools (CVE-2025-66034) → FontForge Command Injection (CVE-2024-25081) → Sudo Path Traversal (CVE-2024-25082) | [Walkthrough](./Medium/README.md) |
 
 ### 🔴 Hard
 | Machine | Date | Focus | Walkthrough |

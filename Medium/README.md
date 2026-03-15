@@ -23,6 +23,7 @@ For most machines in this category, I follow a standard workflow:
 | **Interpreter**| Linux | CVE-2023-43208 (Mirth Connect RCE) + Eval Injection (PrivEsc) | 🟡 / 🟡 | [Walkthrough](./interpreter/README.md) |
 | **AirTouch** | Linux | Credential Exposure + Network Pivoting | 🟡 / 🟡 | [Walkthrough](./Airtouch/README.md) |
 | **Principal** | Linux | JWT Authentication Bypass (CVE-2026-29000) + SSH CA Certificate Forgery | 🟡 / 🔴 | [Walkthrough](./Principal/README.md) |
+| **VariaType** | Linux | LFI → fontTools (CVE-2025-66034) → FontForge Command Injection (CVE-2024-25081) → Sudo Path Traversal (CVE-2024-25082) | 🟡 / 🟢 | [Walkthrough](./VariaType/README.md) |
 ---
 
 ##  Common Tools Used
