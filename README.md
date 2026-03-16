@@ -1,53 +1,59 @@
-#  HackTheBox Writeups
+# HackTheBox Writeups
 
-Welcome to my collection of HackTheBox machine walkthroughs. This repository serves as a technical journal of my penetration testing journey, documenting the methodologies, tools, and vulnerabilities encountered.
-
----
-
-##  Repository Structure
-
-The repository is organized by machine difficulty to make navigation easier:
-
-* **[Easy](./Easy/)** - Entry-level machines focusing on fundamental concepts.
-* **[Medium](./Medium/)** - Intermediate challenges requiring more complex chains.
-* **[Hard](./Hard/)** - Advanced machines with custom exploitation and deep enumeration.
+This repository is a technical journal of my Hack The Box penetration testing journey, documenting methodologies, tools, and concepts explored.  
 
 ---
 
-##  Completed Writeups
+## Repository Structure
+
+The repository is organized to make navigation easier:
+
+* **[Easy](./Easy/)** – Entry-level machines focusing on fundamental concepts.  
+* **[Medium](./Medium/)** – Intermediate machines requiring multi-step exploitation.  
+* **[Hard](./Hard/)** – Advanced machines with complex exploitation and deep enumeration.  
+* **[Fortress](./Fortress/)** – Conceptual notes from Fortress machines (policy-safe, no full writeups).
+
+---
+
+## Completed Machines – Conceptual Notes
 
 ### 🟢 Easy
-| Machine | Date | Focus | Walkthrough |
+| Machine | Date | Focus | Notes |
 | :--- | :--- | :--- | :--- |
-| **Editor** | Jan 2026 | RCE (XWiki), PATH Hijacking | [Walkthorugh](./Easy/README.md) |
-| **Expressway**| Jan 2026| IKE Aggressive mode,Custom SUID Binary| [Walkthorugh](./Easy/README.md) |
-| **MonitorsFour** | Jan 2026  | RCE (CVE-2025-24367) , Exposed Docker Remote API(Unauthenticated)  | [Walkthorugh](./Easy/README.md) |
-| **Facts** | Feb 2026 | Information Disclosure + Misconfiguration | [Walkthrough](./Easy/README.md) |
-| **WingData** | Feb 2026 | Web Application Vulnerability (Auth/Injection) |  [Walkthrough](./Easy/README.md) |
-| **CCTV** | Mar 2026 | Internal Reconnaissance, API Abuse, Service Misconfiguration | [Walkthrough](./Easy/README.md) |
+| Editor | Jan 2026 | RCE, PATH Hijacking | [Notes](./Easy/README.md) |
+| Expressway | Jan 2026 | IKE Aggressive Mode, Custom SUID | [Notes](./Easy/README.md) |
+| MonitorsFour | Jan 2026 | RCE (CVE-2025-24367), Docker Remote API | [Notes](./Easy/README.md) |
+| Facts | Feb 2026 | Information Disclosure, Misconfiguration | [Notes](./Easy/README.md) |
+| WingData | Feb 2026 | Web App Vulnerabilities (Auth/Injection) | [Notes](./Easy/README.md) |
+| CCTV | Mar 2026 | Internal Recon, API Abuse | [Notes](./Easy/README.md) |
 
 ### 🟡 Medium
-| Machine | Date | Focus | Walkthrough |
+| Machine | Date | Focus | Notes |
 | :--- | :--- | :--- | :--- |
-| **Pterodactyl** | Feb 2026 | RCE(CVE-2025-43912), Privilige Escalation(CVE-2025-6019/6018) | [Walkthorugh](./Medium/README.md) |
-| **AirTouch** | Feb 2026 | Credential Exposure + Network Pivoting  | [Walkthrough](./Medium/README.md) |
-| **Interpreter**| Feb 2026 | Mirth Connect RCE + Eval Injection (PrivEsc) | [Walkthrough](./Medium/README.md) |
-| **Principal** | Linux | JWT Authentication Bypass (CVE-2026-29000) + SSH CA Certificate Forgery | [Walkthrough](./Medium/README.md) |
-| **VariaType** | Linux | LFI → fontTools (CVE-2025-66034) → FontForge Command Injection (CVE-2024-25081) → Sudo Path Traversal (CVE-2024-25082) | [Walkthrough](./Medium/README.md) |
+| Pterodactyl | Feb 2026 | RCE, PrivEsc (CVE-2025-6019/6018) | [Notes](./Medium/README.md) |
+| AirTouch | Feb 2026 | Credential Exposure, Network Pivot | [Notes](./Medium/README.md) |
+| Interpreter | Feb 2026 | RCE, Eval Injection | [Notes](./Medium/README.md) |
+| Principal | Linux | JWT Auth Bypass, SSH CA Forgery | [Notes](./Medium/README.md) |
+| VariaType | Linux | LFI → FontTools → Command Injection → Sudo Path Traversal | [Notes](./Medium/README.md) |
 
 ### 🔴 Hard
-| Machine | Date | Focus | Walkthrough |
+| Machine | Date | Focus | Notes |
 | :--- | :--- | :--- | :--- |
-| **Pirate** | Feb 2026 | gMSA Enumeration, Kerberoasting, AD Privilege Escalation  | [Walkthrough](./Hard/README.md) |
+| Pirate | Feb 2026 | gMSA Enumeration, Kerberoasting, AD PrivEsc | [Notes](./Hard/README.md) |
+
+### 🏰 Fortress (Conceptual Notes Only)
+| Machine | Date | Focus | Notes |
+| :--- | :--- | :--- | :--- |
+| Akerva | Mar 2026 | SNMP Enumeration, Backup Fuzzing, Flask, LFI, PrivEsc, Cipher Decoding | [Notes](./Fortress/Akerva/notes.md) |
+| Other Fortress Machines | TBD | Various Concepts | [Notes](./Fortress/README.md) |
 
 ---
 
-##  Tools Frequently Used
+## Tools Frequently Used
 
-* **Recon:** Nmap, Gobuster, Rustscan
-* **Web:** Burp Suite, Ffuf, SQLmap
-* **Exploitation:** Metasploit, Searchsploit, Custom PoCs
-* **PrivEsc:** LinPEAS, WinPEAS, ppyy
+* **Recon:** Nmap, Gobuster, Rustscan  
+* **Web Testing:** Burp Suite, ffuf, SQLmap  
+* **Exploitation:** Metasploit, Custom PoCs  
+* **Privilege Escalation:** LinPEAS, pspy  
 
 ---
-
