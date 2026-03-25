@@ -20,33 +20,33 @@ The repository is organized to make navigation easier:
 ### 🟢 Easy
 | Machine | Date | Focus | Notes |
 | :--- | :--- | :--- | :--- |
-| Editor | Jan 2026 | RCE, PATH Hijacking | [Notes](./Easy/README.md) |
-| Expressway | Jan 2026 | IKE Aggressive Mode, Custom SUID | [Notes](./Easy/README.md) |
-| MonitorsFour | Jan 2026 | RCE (CVE-2025-24367), Docker Remote API | [Notes](./Easy/README.md) |
-| Facts | Feb 2026 | Information Disclosure, Misconfiguration | [Notes](./Easy/README.md) |
-| WingData | Feb 2026 | Web App Vulnerabilities (Auth/Injection) | [Notes](./Easy/README.md) |
-| CCTV | Mar 2026 | Internal Recon, API Abuse | [Notes](./Easy/README.md) |
+| Editor | Jan 2026 | RCE, PATH Hijacking | [Walkthrough](./Easy/README.md) |
+| Expressway | Jan 2026 | IKE Aggressive Mode, Custom SUID | [Walkthrough](./Easy/README.md) |
+| MonitorsFour | Jan 2026 | RCE (CVE-2025-24367), Docker Remote API | [Walkthrough](./Easy/README.md) |
+| Facts | Feb 2026 | Information Disclosure, Misconfiguration | [Walkthrough](./Easy/README.md) |
+| WingData | Feb 2026 | Web App Vulnerabilities (Auth/Injection) | [Walkthrough](./Easy/README.md) |
+| CCTV | Mar 2026 | Internal Recon, API Abuse | [Walkthrough](./Easy/README.md) |
 
 ### 🟡 Medium
 | Machine | Date | Focus | Notes |
 | :--- | :--- | :--- | :--- |
-| Pterodactyl | Feb 2026 | RCE, PrivEsc (CVE-2025-6019/6018) | [Notes](./Medium/README.md) |
-| AirTouch | Feb 2026 | Credential Exposure, Network Pivot | [Notes](./Medium/README.md) |
-| Interpreter | Feb 2026 | RCE, Eval Injection | [Notes](./Medium/README.md) |
-| Principal | Linux | JWT Auth Bypass, SSH CA Forgery | [Notes](./Medium/README.md) |
-| VariaType | Linux | LFI → FontTools → Command Injection → Sudo Path Traversal | [Notes](./Medium/README.md) |
+| Pterodactyl | Feb 2026 | RCE, PrivEsc (CVE-2025-6019/6018) | [Walkthrough](./Medium/README.md) |
+| AirTouch | Feb 2026 | Credential Exposure, Network Pivot | [Walkthrough](./Medium/README.md) |
+| Interpreter | Feb 2026 | RCE, Eval Injection | [Walkthrough](./Medium/README.md) |
+| Principal | Linux | JWT Auth Bypass, SSH CA Forgery | [Walkthrough](./Medium/README.md) |
+| VariaType | Linux | LFI → FontTools → Command Injection → Sudo Path Traversal | [Walkthrough](./Medium/README.md) |
 
 ### 🔴 Hard
 | Machine | Date | Focus | Notes |
 | :--- | :--- | :--- | :--- |
-| Pirate | Feb 2026 | gMSA Enumeration, Kerberoasting, AD PrivEsc | [Notes](./Hard/README.md) |
+| Pirate | Feb 2026 | gMSA Enumeration, Kerberoasting, AD PrivEsc | [Walkthrough](./Hard/README.md) |
 | **Snapped** | March 2026 | CVE-2026-27944, Credential Cracking, CVE-2026-3888 snapd LPE | [Walkthrough](./Hard/README.md) |
 
 ### 🏰 Fortress (Conceptual Notes Only)
 | Machine | Date | Focus | Notes |
 | :--- | :--- | :--- | :--- |
-| Akerva | Mar 2026 | SNMP Enumeration, Backup Fuzzing, Flask, LFI, PrivEsc, Cipher Decoding | [Notes](./Fortress/Akerva/notes.md) |
-| Other Fortress Machines | TBD | Various Concepts | [Notes](./Fortress/README.md) |
+| Akerva | Mar 2026 | SNMP Enumeration, Backup Fuzzing, Flask, LFI, PrivEsc, Cipher Decoding | [Walkthrough](./Fortress/Akerva/notes.md) |
+| Other Fortress Machines | TBD | Various Concepts | [Walkthrough](./Fortress/README.md) |
 
 ---
 
