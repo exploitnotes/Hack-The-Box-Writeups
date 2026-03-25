@@ -26,7 +26,7 @@ The repository is organized to make navigation easier:
 | Facts | Feb 2026 | Information Disclosure, Misconfiguration | [Walkthrough](./Easy/README.md) |
 | WingData | Feb 2026 | Web App Vulnerabilities (Auth/Injection) | [Walkthrough](./Easy/README.md) |
 | CCTV | Mar 2026 | Internal Recon, API Abuse | [Walkthrough](./Easy/README.md) |
-| **Kobold** | Mar 2026 | JSON Injection, RCE (CVE-2026-23744), Docker Privilege Escalation, Container Escape | 🟡 / 🔴 | [Walkthrough](./Easy/README.md) |
+| **Kobold** | Mar 2026 | JSON Injection, RCE (CVE-2026-23744), Docker Privilege Escalation, Container Escape | [Walkthrough](./Easy/README.md) |
 
 ### 🟡 Medium
 | Machine | Date | Focus | Notes |
