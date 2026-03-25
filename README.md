@@ -48,7 +48,6 @@ The repository is organized to make navigation easier:
 | Machine | Date | Focus | Notes |
 | :--- | :--- | :--- | :--- |
 | Akerva | Mar 2026 | SNMP Enumeration, Backup Fuzzing, Flask, LFI, PrivEsc, Cipher Decoding | [Walkthrough](./Fortress/Akerva/notes.md) |
-| Other Fortress Machines | TBD | Various Concepts | [Walkthrough](./Fortress/README.md) |
 | Faraday | Mar 2026 | API Fuzzing, Auth Bypass, Hash Cracking, SSH Foothold, Linux Privilege Escalation, Rootkit Detection | [Walkthrough](./Fortress/README.md) |
 
 ---
