@@ -1,8 +1,8 @@
-# Snapped Walkthorugh
+# Snapped Walkthrough
 
 ![alt text](images/pwned.png)
 
-# Reconnaisance 
+# Reconnaissance
 
 First we perform a nmap scan to identify the services running on the target machine.
 
@@ -87,7 +87,7 @@ Bingo!! We found /api/install endpoint from when we visited the page with a stat
 Let's fuzz the api endpoint.
 
 ```bash
-feroxbuster -u http://admin.snapped.htb/api/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -C 500,403,403 -t 30 -d 3  
+feroxbuster -u http://admin.snapped.htb/api/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -C 500,403,404 -t 30 -d 3  
                                                                                                                              
  ___  ___  __   __     __      __         __   ___
 |__  |__  |__) |__) | /  `    /  \ \_/ | |  \ |__
@@ -211,13 +211,14 @@ sqlite> select * from users;
 sqlite> 
 ```
 
-We found two hashes.Save them in a file, We can see that they are bcrypt hashes with 10 rounds.
+We found two hashes.Save them in a file, The prefix $2a$10$ confirms bcrypt with cost factor 10 .
 We can use hashcat to decrypt them.
 
 ```bash
 hashcat -m 3200 hash.txt rockyou.txt
 ```
-It successuly cracked a hash.
+It successfully cracked a hash. '-m 3200 is specially for **bcrypt 2**
+2∗**
 
 ## User flag
 
@@ -423,10 +424,10 @@ If not start again from Terminal 01
 Let's check if the PID is still active.
 
 ```bash
-cat /proc/18606/cwd/race_pid.txt
+cat /proc/<PID>/cwd/race_pid.txt
 ```
 This should return a value
-Exploit writesnew privileged PID and confirms race success.
+Exploit writes new privileged PID and confirms race success.
 
 Let's move into poisoned root file system
 
