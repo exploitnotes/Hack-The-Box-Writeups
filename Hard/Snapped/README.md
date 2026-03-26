@@ -321,8 +321,8 @@ Look at the output for every 4 minutes files from /tmp directory are being delet
 
 Before starting exploitation let's compile required libraries
 Download these scripts and compile them :
-1. [text](firefox_2404.c)
-2. [text](librootshell.c)
+1. [firefox_2404.c](firefox_2404.c)
+2. [librootshell.c](librootshell.c)
 
 We are preparing a payload that root will unknowingly execute
 
