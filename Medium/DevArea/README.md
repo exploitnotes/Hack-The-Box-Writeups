@@ -1,6 +1,6 @@
-# Pterodactyl
+# DevArea
 
-![Machine Solved](images/solved.png)
+![Machine Solved](images/Pwned.png)
 
 **Status:** Solved  
 **Difficulty:** [Medium]  
