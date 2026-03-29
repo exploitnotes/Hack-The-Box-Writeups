@@ -34,8 +34,9 @@ The repository is organized to make navigation easier:
 | **Pterodactyl** | Feb 2026 | RCE, PrivEsc (CVE-2025-6019/6018) | [Walkthrough](./Medium/README.md) |
 | **AirTouch** | Feb 2026 | Credential Exposure, Network Pivot | [Walkthrough](./Medium/README.md) |
 | **Interpreter** | Feb 2026 | RCE, Eval Injection | [Walkthrough](./Medium/README.md) |
-| **Principal** | Linux | JWT Auth Bypass, SSH CA Forgery | [Walkthrough](./Medium/README.md) |
-| **VariaType** | Linux | LFI → FontTools → Command Injection → Sudo Path Traversal | [Walkthrough](./Medium/README.md) |
+| **VariaType** | Feb 2026 | LFI → FontTools → Command Injection → Sudo Path Traversal | [Walkthrough](./Medium/README.md) |
+| **Principal** | Mar 2026 | JWT Auth Bypass, SSH CA Forgery | [Walkthrough](./Medium/README.md) |
+| **DevArea** | Mar 2026 | FTP Enumeration → JAR Analysis → SSRF (Port 8888) → Credential Leak → Hoverfly RCE (CVE-2025-54123) → SSH Key Injection → World-Writable `/usr/bin/bash` → SUID rootbash via `dd` + `sudo` → Root | [Walkthrough](./Medium/README.md) |
 
 ### 🔴 Hard
 | Machine | Date | Focus | Notes |
