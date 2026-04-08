@@ -27,6 +27,7 @@ The repository is organized to make navigation easier:
 | **WingData** | Feb 2026 | Web App Vulnerabilities (Auth/Injection) | [Walkthrough](./Easy/README.md) |
 | **CCTV** | Mar 2026 | Internal Recon, API Abuse | [Walkthrough](./Easy/README.md) |
 | **Kobold** | Mar 2026 | JSON Injection, RCE (CVE-2026-23744), Docker Privilege Escalation, Container Escape | [Walkthrough](./Easy/README.md) |
+| **Support** | Mar 2022 | AD Enumeration, SMB Anonymous Access, .NET Decompilation, Credential Decryption, LDAP Abuse, RBCD (Resource-Based Constrained Delegation), Kerberos Impersonation | [Walkthrough](./Easy/README.md) |
 
 ### 🟡 Medium
 | Machine | Date | Focus | Notes |

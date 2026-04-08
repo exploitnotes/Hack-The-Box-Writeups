@@ -26,6 +26,7 @@ For most machines in this category, I follow a standard workflow:
 | **WingData** | Linux | Web Application Vulnerability (Auth/Injection) | 🟢 / 🟢 | [Walkthrough](./Wingdata/README.md) |
 | **CCTV** | Mar 2026 | Internal Reconnaissance, API Abuse, Service Misconfiguration | 🟢 / 🟢 |[Walkthrough](./Easy/README.md) |
 | **Kobold** | Mar 2026 | JSON Injection, RCE (CVE-2026-23744), Docker Privilege Escalation, Container Escape | 🟢 / 🟢 | [Walkthrough](./Kobold/README.md) |
+| **Support** | Mar 2026 | AD Enumeration, SMB Anonymous Access, .NET Decompilation, Credential Decryption, LDAP Abuse, RBCD (Resource-Based Constrained Delegation), Kerberos Impersonation | 🟢 / 🟢 | [Walkthrough](./Support/README.md) |
 ---
 
 ##  Common Tools Used
