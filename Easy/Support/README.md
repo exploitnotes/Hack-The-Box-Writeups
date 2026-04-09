@@ -183,6 +183,7 @@ Static analysis using the strings utility revealed references to functions and v
 
 ### 3.1 Static Binary Decompilation
 
+strings hinted at encrypted creds, so we decompiled with ILSpy to confirm.
 We performed IL decompilation on the .NET assembly to recover source code without execution:
 
 ```bash
@@ -285,7 +286,7 @@ dSCorePropagationData: 20220528111201.0Z
 dSCorePropagationData: 16010101000000.0Z
 ```
 
-Sometimes admin stores credentials here, It looks like a human readable.
+Administrators sometimes store credentials in the `info` field
 
 We can check if we can access the support using evil-winrm via bloodhound
 
