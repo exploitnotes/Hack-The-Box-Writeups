@@ -2,7 +2,7 @@
 
 ![alt text](images/Pwned.png)
 
-## 1. Reconnaisance
+## 1. Reconnaissance
 
 Let's perform an nmap scan to identify the open ports and services running on the <MACHINE-IP>
 
