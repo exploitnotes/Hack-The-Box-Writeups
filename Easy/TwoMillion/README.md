@@ -675,13 +675,12 @@ Nmap Scan
 
 ## 7. Key Vulnerabilties
 
-## Key Vulnerabilities
-
 | # | Vulnerability | Impact |
 |---|---------------|--------|
-| 1 | **CVE-2026-29000 – pac4j-jwt Authentication Bypass** | Allows attackers to forge malicious JWT tokens and bypass authentication, impersonating privileged users such as `admin`. |
-| 2 | **JWKS Public Key Exposure** | The publicly accessible JWKS endpoint exposes the RSA public key used for token encryption, enabling attackers to craft valid encrypted tokens. |
-| 3 | **Credential Exposure / Reuse** | Credentials discovered from the application dashboard were reused for SSH authentication, enabling lateral movement. |
-| 4 | **Weak SSH Access Controls** | The `svc-deploy` account allowed SSH access without additional restrictions, providing an attacker foothold on the system. |
-| 5 | **Improper Protection of SSH CA Private Key** | The SSH Certificate Authority private key was accessible to a non-privileged user (`svc-deploy`), allowing attackers to sign arbitrary SSH certificates. |
-| 6 | **SSH Certificate Trust Misconfiguration** | Lack of proper `AuthorizedPrincipalsFile` restrictions allowed a forged certificate with the `root` principal to authenticate as the root user. |
+| 1 | **Invite Code Generation Logic Exposure** | The invite system relied on client-side JavaScript which exposed hidden API endpoints used to generate invite codes, allowing attackers to bypass the registration restriction. |
+| 2 | **Improper API Authorization** | The endpoint `/api/v1/admin/settings/update` allowed modification of the `is_admin` parameter without verifying administrative privileges, enabling privilege escalation to administrator. |
+| 3 | **Command Injection in VPN Generation** | The `/api/v1/admin/vpn/generate` endpoint failed to sanitize the `username` parameter, allowing arbitrary command execution on the server. |
+| 4 | **Sensitive Credentials Stored in `.env`** | Database credentials were stored in a readable `.env` file accessible to the `www-data` user, enabling credential discovery. |
+| 5 | **Credential Reuse** | The discovered database credentials were reused for the `admin` system account, allowing SSH access to the host. |
+| 6 | **Vulnerable Linux Kernel (CVE-2023-0386)** | The system was running a vulnerable kernel version susceptible to the OverlayFS/FUSE privilege escalation vulnerability. |
+| 7 | **Local Privilege Escalation via OverlayFS** | Exploiting CVE-2023-0386 allowed the attacker to create a SUID binary and escalate privileges from `admin` to `root`. |
