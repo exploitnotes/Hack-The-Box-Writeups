@@ -27,6 +27,7 @@ For most machines in this category, I follow a standard workflow:
 | **CCTV** | Mar 2026 | Internal Reconnaissance, API Abuse, Service Misconfiguration | 🟢 / 🟢 |[Walkthrough](./Easy/README.md) |
 | **Kobold** | Mar 2026 | JSON Injection, RCE (CVE-2026-23744), Docker Privilege Escalation, Container Escape | 🟢 / 🟢 | [Walkthrough](./Kobold/README.md) |
 | **Support** | Mar 2026 | AD Enumeration, SMB Anonymous Access, .NET Decompilation, Credential Decryption, LDAP Abuse, RBCD (Resource-Based Constrained Delegation), Kerberos Impersonation | 🟢 / 🟢 | [Walkthrough](./Support/README.md) |
+| **Silentium** | Linux | Subdomain Fuzzing → API Auth Bypass (forgot-password) → Flowise RCE (CVE-2025-59528) → Docker Root → Credential Extraction → SSH Access → Gogs Discovery → CVE-2025-8110 RCE → Root | 🟢 / 🟢 | [Writeup](./Silentium/README.md) |
 ---
 
 ##  Common Tools Used

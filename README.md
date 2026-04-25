@@ -28,6 +28,7 @@ The repository is organized to make navigation easier:
 | **CCTV** | Mar 2026 | Internal Recon, API Abuse | [Writeup](./Easy/README.md) |
 | **Kobold** | Mar 2026 | JSON Injection, RCE (CVE-2026-23744), Docker Privilege Escalation, Container Escape | [Writeup](./Easy/README.md) |
 | **Support** | Mar 2022 | AD Enumeration, SMB Anonymous Access, .NET Decompilation, Credential Decryption, LDAP Abuse, RBCD (Resource-Based Constrained Delegation), Kerberos Impersonation | [Writeup](./Easy/README.md) |
+| **Silentium** | Apr 2026 | Subdomain Fuzzing → API Auth Bypass (forgot-password) → Flowise RCE (CVE-2025-59528) → Docker Root → Credential Extraction → SSH Access → Gogs Discovery → CVE-2025-8110 RCE → Root | [Writeup](./Easy/README.md) |
 
 ### 🟡 Medium
 | Machine | Date | Focus | Notes |
@@ -38,6 +39,7 @@ The repository is organized to make navigation easier:
 | **VariaType** | Feb 2026 | LFI → FontTools → Command Injection → Sudo Path Traversal | [Writeup](./Medium/README.md) |
 | **Principal** | Mar 2026 | JWT Auth Bypass, SSH CA Forgery | [Writeup](./Medium/README.md) |
 | **DevArea** | Mar 2026 | FTP Enumeration → JAR Analysis → SSRF (Port 8888) → Credential Leak → Hoverfly RCE (CVE-2025-54123) → SSH Key Injection → World-Writable `/usr/bin/bash` → SUID rootbash via `dd` + `sudo` → Root | [Writeup](./Medium/README.md) |
+| **Logging** | Apr 2026 | SMB Logs → Credential Leak (svc_recovery) → Kerberos Auth → BloodHound → Shadow Credentials → Task DLL Injection → SYSTEM Shell → ADCS Cert Abuse → DNS Manipulation → WSUS HTTPS MITM → Root | [Writeup](./Medium/README.md) |
 
 ### 🔴 Hard
 | Machine | Date | Focus | Notes |
