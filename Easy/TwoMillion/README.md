@@ -544,14 +544,14 @@ A quick google search for `Overlays fuse CVE` revealed an exploit which is assig
 CVE-2023-0386 allows privilege escalation through overlay filesystem 
 FUSE interactions by creating SUID binaries via overlay mount manipulation.
 Current kernel 5.15.70 is vulnerable.
-This ubuntu webpage contains the affected version ![Website](https://ubuntu.com/security/CVE-2023-0386).
+This ubuntu webpage contains the affected version [Ubuntu CVE-2023-0386 Advisory](https://ubuntu.com/security/CVE-2023-0386).
 
 ```bash
  uname -a
 Linux 2million 5.15.70-051570-generic #202209231339 SMP Fri Sep 23 13:45:37 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux
 ```
 
-The kernel version falls within the vulnerable range for CVE-2023-0386. Search for PoC revealed this ![script]
+The kernel version falls within the vulnerable range for CVE-2023-0386. Search for PoC revealed this ![OverlayFS CVE-2023-0386 PoC]
 (https://github.com/DataDog/security-labs-pocs/blob/main/proof-of-concept-exploits/overlayfs-cve-2023-0386/poc.c)
 
 Download or copy the script to your attacker machine.
