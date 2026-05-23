@@ -30,6 +30,7 @@ The repository is organized to make navigation easier:
 | **Support** | Mar 2022 | AD Enumeration, SMB Anonymous Access, .NET Decompilation, Credential Decryption, LDAP Abuse, RBCD (Resource-Based Constrained Delegation), Kerberos Impersonation | [Writeup](./Easy/README.md) |
 | **Silentium** | Apr 2026 | Subdomain Fuzzing → API Auth Bypass (forgot-password) → Flowise RCE (CVE-2025-59528) → Docker Root → Credential Extraction → SSH Access → Gogs Discovery → CVE-2025-8110 RCE → Root | [Writeup](./Easy/README.md) |
 | **TwoMillion** | Apr 2026 | JS Analysis → Invite Code Generation → API Enumeration → Admin Privilege Escalation → Command Injection → Reverse Shell → Credential Reuse → SSH Access → OverlayFS PrivEsc (CVE-2023-0386) → Root | [Writeup](./Easy/README.md) |
+| **Reactor** | May 2026 | Next.js Fingerprinting → CVE-2025-55182 (Unauth RCE) → SQLite DB Loot → MD5 Hash Cracking → SSH Access → Node Inspector Abuse (--inspect as root) → Root | [Writeup](./Reactor/README.md) |
 
 ### 🟡 Medium
 | Machine | Date | Focus | Notes |
