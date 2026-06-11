@@ -1,0 +1,75 @@
+# ─── OS & Editor ───────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# ─── Python ─────────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+
+# ─── Tools & Wordlists ──────────────────────────────────────
+*.txt
+!README.txt
+wordlists/
+rockyou.txt
+*.lst
+
+# ─── Exploit / Script Artifacts ─────────────────────────────
+*.exe
+*.elf
+*.bin
+*.so
+*.dll
+*.out
+
+# ─── Shells & Payloads ──────────────────────────────────────
+shell.*
+revshell.*
+payload.*
+*.msfvenom
+*.war
+*.jsp
+*.aspx
+
+# ─── Nmap Output ─────────────────────────────────────────────
+*.nmap
+*.gnmap
+*.xml
+
+# ─── Credential Files ────────────────────────────────────────
+*.hash
+hashes.txt
+creds.txt
+passwords.txt
+id_rsa
+id_ed25519
+*.pem
+*.key
+*.pfx
+*.p12
+
+# ─── Archives ────────────────────────────────────────────────
+*.zip
+*.tar.gz
+*.tgz
+*.7z
+*.rar
+
+# ─── Screenshots (keep intentional ones, ignore bulk dumps) ──
+screenshots/raw/
+dump/
+
+# ─── Misc Temp ───────────────────────────────────────────────
+loot/
+tmp/
+temp/
+*.log
