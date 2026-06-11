@@ -1,5 +1,7 @@
 # HackTheBox - Abducted Writeup
 
+![alt text](images/abducted_cover.gif)
+
 **Difficulty:** Medium
 **OS:** Linux 
 
