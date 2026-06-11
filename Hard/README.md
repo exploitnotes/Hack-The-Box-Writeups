@@ -21,11 +21,11 @@ Hard machines usually require chaining multiple vulnerabilities together. My wor
 
 | Machine Name | OS | Main Vulnerability | Difficulty (User/Root) | Link |
 | :--- | :--- | :--- | :--- | :--- |
-| **Pirate** | Windows | gMSA Enumeration, Kerberoasting, AD Privilege Escalation | 🔴 / 🔴 | [Walkthrough](./Pirate/README.md) |
-| **Snapped** | Linux | CVE-2026-27944, Credential Cracking, CVE-2026-3888 snapd LPE | 🔴 / 🔴 | [Walkthrough](./Snapped/README.md) |
-| **Fries** | Mar 2026 | Enumeration, Credential Abuse, Container Pivoting, Active Directory Exploitation, AD CS Attacks | 🔴 / 🔴 | [Walkthrough](./Fries/README.md) |
-| **DarkZero** | Apr 2026 | MSSQL Abuse, Linked Server Pivoting, Privilege Escalation, Kerberos Abuse (DC01$ TGT), DCSync, Pass-the-Hash | 🔴 / 🔴 | [Walkthrough](./DarkZero/README.md) |
-| **Garfield** | Apr 2026 | SYSVOL Abuse, Logon Script Injection, Delegation Abuse, RBCD, Chisel Pivoting, RODC Abuse, Kerberos (RODC Golden Ticket), DCSync, Pass-the-Hash | 🔴 / 🔴 | [Walkthrough](./Garfield/README.md) |
+| **Pirate** | Windows | gMSA Enumeration, Kerberoasting, AD Privilege Escalation | 🔴 / 🔴 | [Writeup](./Pirate/README.md) |
+| **Snapped** | Linux | CVE-2026-27944, Credential Cracking, CVE-2026-3888 snapd LPE | 🔴 / 🔴 | [Writeup](./Snapped/README.md) |
+| **Fries** | Mar 2026 | Enumeration, Credential Abuse, Container Pivoting, Active Directory Exploitation, AD CS Attacks | 🔴 / 🔴 | [Writeup](./Fries/README.md) |
+| **DarkZero** | Apr 2026 | MSSQL Abuse, Linked Server Pivoting, Privilege Escalation, Kerberos Abuse (DC01$ TGT), DCSync, Pass-the-Hash | 🔴 / 🔴 | [Writeup](./DarkZero/README.md) |
+| **Garfield** | Apr 2026 | SYSVOL Abuse, Logon Script Injection, Delegation Abuse, RBCD, Chisel Pivoting, RODC Abuse, Kerberos (RODC Golden Ticket), DCSync, Pass-the-Hash | 🔴 / 🔴 | [Writeup](./Garfield/README.md) |
 ---
 
 ## Common Tools Used

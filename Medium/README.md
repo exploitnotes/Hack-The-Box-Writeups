@@ -19,12 +19,12 @@ For most machines in this category, I follow a standard workflow:
 
 | Machine Name | OS | Main Vulnerability | Difficulty (User/Root) | Link |
 | :--- | :--- | :--- | :--- | :--- |
-| **Pterodactyl** | Linux | CVE-2025-6018/16019 (RCE) |  🟡/ 🟡 | [Walkthrough](./pterodactyl/README.md) |
+| **Pterodactyl** | Linux | CVE-2025-6018/16019 (RCE) |  🟡/ 🟡 | [Writeup](./pterodactyl/README.md) |
 | **Interpreter**| Linux | CVE-2023-43208 (Mirth Connect RCE) + Eval Injection (PrivEsc) | 🟡 / 🟡 | [Walkthrough](./interpreter/README.md) |
-| **AirTouch** | Linux | Credential Exposure + Network Pivoting | 🟡 / 🟡 | [Walkthrough](./Airtouch/README.md) |
-| **Principal** | Linux | JWT Authentication Bypass (CVE-2026-29000) + SSH CA Certificate Forgery | 🟡 / 🔴 | [Walkthrough](./Principal/README.md) |
-| **VariaType** | Linux | LFI → fontTools (CVE-2025-66034) → FontForge Command Injection (CVE-2024-25081) → Sudo Path Traversal (CVE-2024-25082) | 🟡 / 🟢 | [Walkthrough](./VariaType/README.md) |
-| **DevArea** | Linux | FTP Enumeration → JAR Analysis → SSRF (Port 8888) → Credential Leak → Hoverfly RCE (CVE-2025-54123) → SSH Key Injection → World-Writable `/usr/bin/bash` → SUID rootbash via `dd` + `sudo` → Root | 🟡 / 🟡 | [Walkthrough](./DevArea/README.md) |
+| **AirTouch** | Linux | Credential Exposure + Network Pivoting | 🟡 / 🟡 | [Writeup](./Airtouch/README.md) |
+| **Principal** | Linux | JWT Authentication Bypass (CVE-2026-29000) + SSH CA Certificate Forgery | 🟡 / 🔴 | [Writeup](./Principal/README.md) |
+| **VariaType** | Linux | LFI → fontTools (CVE-2025-66034) → FontForge Command Injection (CVE-2024-25081) → Sudo Path Traversal (CVE-2024-25082) | 🟡 / 🟢 | [Writeup](./VariaType/README.md) |
+| **DevArea** | Linux | FTP Enumeration → JAR Analysis → SSRF (Port 8888) → Credential Leak → Hoverfly RCE (CVE-2025-54123) → SSH Key Injection → World-Writable `/usr/bin/bash` → SUID rootbash via `dd` + `sudo` → Root | 🟡 / 🟡 | [Writeup](./DevArea/README.md) |
 | **Logging** | Windows | SMB Logs → Credential Leak (svc_recovery) → Kerberos Auth → BloodHound → Shadow Credentials → Task DLL Injection → SYSTEM Shell → ADCS Cert Abuse → DNS Manipulation → WSUS HTTPS MITM → Root | 🟡 / 🔴 | [Writeup](./Logging/README.md) |
 ---
 

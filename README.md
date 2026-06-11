@@ -31,6 +31,7 @@ The repository is organized to make navigation easier:
 | **Silentium** | Apr 2026 | Subdomain Fuzzing → API Auth Bypass (forgot-password) → Flowise RCE (CVE-2025-59528) → Docker Root → Credential Extraction → SSH Access → Gogs Discovery → CVE-2025-8110 RCE → Root | [Writeup](./Easy/README.md) |
 | **TwoMillion** | Apr 2026 | JS Analysis → Invite Code Generation → API Enumeration → Admin Privilege Escalation → Command Injection → Reverse Shell → Credential Reuse → SSH Access → OverlayFS PrivEsc (CVE-2023-0386) → Root | [Writeup](./Easy/README.md) |
 | **Reactor** | May 2026 | Next.js Fingerprinting → CVE-2025-55182 (Unauth RCE) → SQLite DB Loot → MD5 Hash Cracking → SSH Access → Node Inspector Abuse (--inspect as root) → Root | [Writeup](./Reactor/README.md) |
+| **Facts** | June 2026 | Camaleon CMS Recon → CVE-2024-46987 (LFI) → CVE-2025-2304 (Mass Assignment → Admin) → LocalStack S3 Creds Leak → SSH Key Retrieval → Passphrase Crack → SSH Access → Facter Custom Ruby (sudo NOPASSWD) → Root | [Writeup](./Easy/README.md) |
 
 ### 🟡 Medium
 | Machine | Date | Focus | Notes |

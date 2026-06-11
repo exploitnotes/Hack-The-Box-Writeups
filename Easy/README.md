@@ -19,16 +19,18 @@ For most machines in this category, I follow a standard workflow:
 
 | Machine Name | OS | Main Vulnerability | Difficulty (User/Root) | Link |
 | :--- | :--- | :--- | :--- | :--- |
-| **Editor** | Linux | CVE-2025-24893 (RCE) | 🟢 / 🟢 | [Walkthrough](./Editor/README.md) |
-| **Expressway** | Linux | IKE Agressive mode/ Custom SUID Binary | 🟢 / 🟢 | [Walkthrough](./Expressway/README.md) |
-| **MonitorsFour** | Linux | CVE-2025-24367(RCE)/ Exposed Docker Remote API (Unauthenticated) | 🟢 / 🟢 | [Walkthrough](./MonitorsFour/README.md) |
-| **Facts** | Linux | Information Disclosure + Misconfiguration | 🟢 / 🟢 | [Walkthrough](./Facts/README.md) |
-| **WingData** | Linux | Web Application Vulnerability (Auth/Injection) | 🟢 / 🟢 | [Walkthrough](./Wingdata/README.md) |
-| **CCTV** | Mar 2026 | Internal Reconnaissance, API Abuse, Service Misconfiguration | 🟢 / 🟢 |[Walkthrough](./Easy/README.md) |
-| **Kobold** | Mar 2026 | JSON Injection, RCE (CVE-2026-23744), Docker Privilege Escalation, Container Escape | 🟢 / 🟢 | [Walkthrough](./Kobold/README.md) |
-| **Support** | Mar 2026 | AD Enumeration, SMB Anonymous Access, .NET Decompilation, Credential Decryption, LDAP Abuse, RBCD (Resource-Based Constrained Delegation), Kerberos Impersonation | 🟢 / 🟢 | [Walkthrough](./Support/README.md) |
+| **Editor** | Linux | CVE-2025-24893 (RCE) | 🟢 / 🟢 | [Writeup](./Editor/README.md) |
+| **Expressway** | Linux | IKE Agressive mode/ Custom SUID Binary | 🟢 / 🟢 | [Writeup](./Expressway/README.md) |
+| **MonitorsFour** | Linux | CVE-2025-24367(RCE)/ Exposed Docker Remote API (Unauthenticated) | 🟢 / 🟢 | [Writeup](./MonitorsFour/README.md) |
+| **Facts** | Linux | Information Disclosure + Misconfiguration | 🟢 / 🟢 | [Writeup](./Facts/README.md) |
+| **WingData** | Linux | Web Application Vulnerability (Auth/Injection) | 🟢 / 🟢 | [Writeup](./Wingdata/README.md) |
+| **CCTV** | Mar 2026 | Internal Reconnaissance, API Abuse, Service Misconfiguration | 🟢 / 🟢 |[Writeup](./Easy/README.md) |
+| **Kobold** | Mar 2026 | JSON Injection, RCE (CVE-2026-23744), Docker Privilege Escalation, Container Escape | 🟢 / 🟢 | [Writeup](./Kobold/README.md) |
+| **Support** | Mar 2026 | AD Enumeration, SMB Anonymous Access, .NET Decompilation, Credential Decryption, LDAP Abuse, RBCD (Resource-Based Constrained Delegation), Kerberos Impersonation | 🟢 / 🟢 | [Writeup](./Support/README.md) |
 | **Silentium** | Linux | Subdomain Fuzzing → API Auth Bypass (forgot-password) → Flowise RCE (CVE-2025-59528) → Docker Root → Credential Extraction → SSH Access → Gogs Discovery → CVE-2025-8110 RCE → Root | 🟢 / 🟢 | [Writeup](./Silentium/README.md) |
 | **TwoMillion** | Linux | JS Analysis → Invite Code Generation → API Enumeration → Admin Privilege Escalation → Command Injection → Reverse Shell → Credential Reuse → SSH Access → OverlayFS PrivEsc (CVE-2023-0386) → Root | 🟢 / 🟢 | [Writeup](./TwoMillion/README.md) |
+| **Reactor** | Linux | Next.js Fingerprinting → CVE-2025-55182 (Unauth RCE) → SQLite DB Loot → MD5 Hash Cracking → SSH Access → Node Inspector Abuse (--inspect as root) → Root | 🟢 / 🟢 | [Writeup](./Reactor/README.md) |
+| **Facts** | Linux | Camaleon CMS Recon → CVE-2024-46987 (LFI) → CVE-2025-2304 (Mass Assignment → Admin) → LocalStack S3 Creds Leak → SSH Key Retrieval → Passphrase Crack → SSH Access → Facter Custom Ruby (sudo NOPASSWD) → Root | 🟢 / 🟢 | [Writeup](./Facts/README.md) |
 ---
 
 ##  Common Tools Used
