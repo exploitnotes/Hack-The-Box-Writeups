@@ -36,13 +36,14 @@ The repository is organized to make navigation easier:
 ### 🟡 Medium
 | Machine | Date | Focus | Notes |
 | :--- | :--- | :--- | :--- |
-| **Pterodactyl** | Feb 2026 | RCE, PrivEsc (CVE-2025-6019/6018) | [Writeup](./Medium/README.md) |
-| **AirTouch** | Feb 2026 | Credential Exposure, Network Pivot | [Writeup](./Medium/README.md) |
-| **Interpreter** | Feb 2026 | RCE, Eval Injection | [Writeup](./Medium/README.md) |
-| **VariaType** | Feb 2026 | LFI → FontTools → Command Injection → Sudo Path Traversal | [Writeup](./Medium/README.md) |
-| **Principal** | Mar 2026 | JWT Auth Bypass, SSH CA Forgery | [Writeup](./Medium/README.md) |
-| **DevArea** | Mar 2026 | FTP Enumeration → JAR Analysis → SSRF (Port 8888) → Credential Leak → Hoverfly RCE (CVE-2025-54123) → SSH Key Injection → World-Writable `/usr/bin/bash` → SUID rootbash via `dd` + `sudo` → Root | [Writeup](./Medium/README.md) |
-| **Logging** | Apr 2026 | SMB Logs → Credential Leak (svc_recovery) → Kerberos Auth → BloodHound → Shadow Credentials → Task DLL Injection → SYSTEM Shell → ADCS Cert Abuse → DNS Manipulation → WSUS HTTPS MITM → Root | [Writeup](./Medium/README.md) |
+| **Pterodactyl** | Feb 2026 | RCE, PrivEsc (CVE-2025-6019/6018) | [Writeup](./Medium/Pterodactyl/README.md) |
+| **AirTouch** | Feb 2026 | Credential Exposure, Network Pivot | [Writeup](./Medium/AirTouch/README.md) |
+| **Interpreter** | Feb 2026 | RCE, Eval Injection | [Writeup](./Medium/Interpreter/README.md) |
+| **VariaType** | Feb 2026 | LFI → FontTools → Command Injection → Sudo Path Traversal | [Writeup](./Medium/VariaType/README.md) |
+| **Principal** | Mar 2026 | JWT Auth Bypass, SSH CA Forgery | [Writeup](./Medium/Principal/README.md) |
+| **DevArea** | Mar 2026 | FTP Enumeration → JAR Analysis → SSRF (Port 8888) → Credential Leak → Hoverfly RCE (CVE-2025-54123) → SSH Key Injection → World-Writable `/usr/bin/bash` → SUID rootbash via `dd` + `sudo` → Root | [Writeup](./Medium/Devarea/README.md) |
+| **Logging** | Apr 2026 | SMB Logs → Credential Leak (svc_recovery) → Kerberos Auth → BloodHound → Shadow Credentials → Task DLL Injection → SYSTEM Shell → ADCS Cert Abuse → DNS Manipulation → WSUS HTTPS MITM → Root | [Writeup](./Medium/Logging/README.md) |
+| **Abducted** | Linux | SMB Printer Share → CVE-2026-4480 %J Print Injection → RCE as nobody → rclone.conf Obfuscated Password → SSH Password Reuse (scott) → SMB Wide Links + force user Symlink → SSH Key Injection (marcus) → systemd Drop-in ExecStartPre → Root | [Writeup](./Medium/Abducted/README.md) |
 
 ### 🔴 Hard
 | Machine | Date | Focus | Notes |
